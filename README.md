@@ -1,4 +1,5 @@
 # react-duration-counter
+<<<<<<< HEAD
 This is a duration counter for counting elapsed time in human readable format , we can use it in blog or webinar website to show published period or elapsed time
 
 # Here is some example:
@@ -29,3 +30,6 @@ try {
 }
 
 ```
+=======
+This is the duration counter for counting elapsed time in human readable format , we can use it in blog or webinar website to show published period or elapsed time
+>>>>>>> 8b9111ba79bba3c4f0d84f04cf81d92203862af5
