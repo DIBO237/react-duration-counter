@@ -1,7 +1,7 @@
 {
   "name": "react-duration-counter",
-  "version": "1.0.0",
-  "description": "This is the duration counter for counting the duration of future dates in human readable format. For example if you give one current date and time it will count from that current time and as time grows it will show the time in humad readable format",
+  "version": "1.2.2",
+  "description": "This is the duration counter for counting elapsed time in human readable format , we can use it in blog or webinar website to show published period or elapsed time",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,8 @@
     "type": "git",
     "url": "https://github.com/DIBO237/react-duration-counter"
   },
-  "keywords": [],
+  "keywords": ["duration", "counter", "timer", "published","elapsed time"],
+
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/DIBO237/react-duration-counter#readme",
   "dependencies": {
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "react-duration-counter": "^1.2.0"
   }
 }

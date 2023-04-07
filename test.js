@@ -1,14 +1,23 @@
-const timer = require('./index')
-const moment = require('moment')
+const elapsed_time = require('react-duration-counter')
 
-const timestamp = 1649388544000; // or any other valid timestamp format
+// TO GET THE CURRENT TIME ONCE
+const published_at = 1680862065904;
+ // or any other valid timestamp format
 try {
-  const now = moment().valueOf() +2;
-console.log(now);
- setInterval(()=>{
-  const timeString = timer(now);
-       console.log(timeString);
- },1000)// "a few seconds", "5 minutes", "an hour", "3 days", etc.
+  
+
+  console.log(published_at);
+  
+  // EXAMPLE INTERVAL I HAVE GIVE NFOR SIMULATION
+  setInterval(() => {
+   
+   // TIMER FUNCTION IS OUR REACT-DURATION-COUNTER
+    const timeString = elapsed_time(published_at);
+    console.log(timeString);
+
+  }, 1000); // " 1 second or 2 seconds", "1 minute or 2 minutes", "1 hour or 2 hours", "1 day or 2 days ", etc.
+
 } catch (error) {
+
   console.error(error.message);
 }
