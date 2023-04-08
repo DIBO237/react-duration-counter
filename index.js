@@ -76,6 +76,8 @@ function relativeDate(publishedDate) {
   return formattedDate;
 }
 
+
+
 function FutureCounter(futureDate) {
   if (!futureDate) {
     throw new Error('Future date is required');
@@ -97,23 +99,19 @@ function FutureCounter(futureDate) {
   const minutes = duration.minutes();
   const seconds = duration.seconds();
 
-  let countdownString = '';
-
   if (years > 0) {
-    countdownString += `${years} year${years > 1 ? 's' : ''}`;
+    return `${years} year${years > 1 ? 's' : ''}`;
   } else if (months > 0) {
-    countdownString += `${months} month${months > 1 ? 's' : ''}`;
+    return `${months} month${months > 1 ? 's' : ''}`;
   } else if (days > 0) {
-    countdownString += `${days} day${days > 1 ? 's' : ''}`;
+    return `${days} day${days > 1 ? 's' : ''}`;
   } else if (hours > 0) {
-    countdownString += `${hours} hour${hours > 1 ? 's' : ''}`;
+    return `${hours} hour${hours > 1 ? 's' : ''}`;
   } else if (minutes > 0) {
-    countdownString += `${minutes} minute${minutes > 1 ? 's' : ''}`;
+    return `${minutes} minute${minutes > 1 ? 's' : ''}`;
   } else {
-    countdownString += `${seconds} second${seconds > 1 ? 's' : ''}`;
+    return `${seconds} second${seconds > 1 ? 's' : ''}`;
   }
-
-  return countdownString;
 }
 
 
