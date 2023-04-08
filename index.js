@@ -76,6 +76,47 @@ function relativeDate(publishedDate) {
   return formattedDate;
 }
 
+function FutureCounter(futureDate) {
+  if (!futureDate) {
+    throw new Error('Future date is required');
+  }
+
+  const now = moment();
+  const diff = moment(futureDate).diff(now);
+
+  if (diff < 0) {
+    throw new Error('Future date must be in the future');
+  }
+
+  const duration = moment.duration(diff);
+
+  const years = Math.floor(duration.asYears());
+  const months = Math.floor(duration.asMonths()) % 12;
+  const days = duration.days();
+  const hours = duration.hours();
+  const minutes = duration.minutes();
+  const seconds = duration.seconds();
+
+  let countdownString = '';
+
+  if (years > 0) {
+    countdownString += `${years} year${years > 1 ? 's' : ''}`;
+  } else if (months > 0) {
+    countdownString += `${months} month${months > 1 ? 's' : ''}`;
+  } else if (days > 0) {
+    countdownString += `${days} day${days > 1 ? 's' : ''}`;
+  } else if (hours > 0) {
+    countdownString += `${hours} hour${hours > 1 ? 's' : ''}`;
+  } else if (minutes > 0) {
+    countdownString += `${minutes} minute${minutes > 1 ? 's' : ''}`;
+  } else {
+    countdownString += `${seconds} second${seconds > 1 ? 's' : ''}`;
+  }
+
+  return countdownString;
+}
+
+
 
 
   module.exports = formatTime;
