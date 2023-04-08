@@ -47,4 +47,35 @@ function formatTime(timestamp) {
   }
 
 
+
+
+function relativeDate(publishedDate) {
+  if (!publishedDate) {
+    throw new Error('Published date is required');
+  }
+
+  const now = moment();
+
+  if (!moment(publishedDate).isValid()) {
+    throw new Error('Invalid published date');
+  }
+
+  const diff = now.diff(publishedDate, 'days');
+  let formattedDate;
+  
+  if (diff < 1) {
+    formattedDate = moment(publishedDate).fromNow();
+  } else if (diff < 7) {
+    formattedDate = moment(publishedDate).format('dddd');
+  } else if (diff < 365) {
+    formattedDate = moment(publishedDate).format('MMM D');
+  } else {
+    formattedDate = moment(publishedDate).format('MMM D, YYYY');
+  }
+  
+  return formattedDate;
+}
+
+
+
   module.exports = formatTime;
