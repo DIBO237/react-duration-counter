@@ -78,12 +78,19 @@ function relativeDate(publishedDate) {
 
 
 
-function FutureCounter(futureDate) {
+function FutureCounter(futureDate, options={}) {
   if (!futureDate) {
     throw new Error('Future date is required');
   }
 
-  const now = moment();
+if (options.start_date) {
+    const startMoment = moment(options.start_date);
+    if (!startMoment.isValid()) {
+      throw new Error('Invalid start date');
+    }
+  }
+
+  const now = moment(options.start_date || undefined);
   const diff = moment(futureDate).diff(now);
 
   if (diff < 0) {
