@@ -1,4 +1,4 @@
- const {humanTime, relativeDate , FutureDateCounter} = require('./index')
+ const {humanTime, relativeDate , FutureDateCounter} = require('react-duration-counter')
 
 // TO GET THE CURRENT TIME ONCE
 const published_at = "2023-04-01T08:22:00.100+00:00";
@@ -14,7 +14,7 @@ try {
   setInterval(() => {
    
    // TIMER FUNCTION IS OUR REACT-DURATION-COUNTER
-    const timeString = FutureDateCounter("2023-04-10");
+    const timeString = humanTime(published_at);
     console.log(timeString);
 
   }, 1000); // " 1 second or 2 seconds", "1 minute or 2 minutes", "1 hour or 2 hours", "1 day or 2 days ", etc.

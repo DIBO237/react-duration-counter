@@ -1,6 +1,6 @@
 {
   "name": "react-duration-counter",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "This is the duration counter for counting elapsed time in human readable format , we can use it in blog or webinar website to show published period or elapsed time",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "type": "git",
     "url": "https://github.com/DIBO237/react-duration-counter"
   },
-  "keywords": ["duration", "counter", "timer", "published","elapsed time"],
-
+  "keywords": [  "react",  "component",  "duration",  "counter",  "timer",  "clock",  "countdown",  "react-component",  "react-timer",  "react-clock",  "react-countdown"]
+  ,
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -20,5 +20,6 @@
   "homepage": "https://github.com/DIBO237/react-duration-counter#readme",
   "dependencies": {
     "moment": "^2.29.4"
+    
   }
 }
