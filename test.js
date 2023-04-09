@@ -1,4 +1,4 @@
-const elapsed_time = require('react-duration-counter')
+ const elapsed_time = require('react-duration-counter')
 
 // TO GET THE CURRENT TIME ONCE
 const published_at = 1680862065904;
