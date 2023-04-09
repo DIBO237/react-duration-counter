@@ -47,4 +47,81 @@ function formatTime(timestamp) {
   }
 
 
+
+
+function relativeDate(publishedDate) {
+  if (!publishedDate) {
+    throw new Error('Published date is required');
+  }
+
+  const now = moment();
+
+  if (!moment(publishedDate).isValid()) {
+    throw new Error('Invalid published date');
+  }
+
+  const diff = now.diff(publishedDate, 'days');
+  let formattedDate;
+  
+  if (diff < 1) {
+    formattedDate = moment(publishedDate).fromNow();
+  } else if (diff < 7) {
+    formattedDate = moment(publishedDate).format('dddd');
+  } else if (diff < 365) {
+    formattedDate = moment(publishedDate).format('MMM D');
+  } else {
+    formattedDate = moment(publishedDate).format('MMM D, YYYY');
+  }
+  
+  return formattedDate;
+}
+
+
+
+function FutureCounter(futureDate, options={}) {
+  if (!futureDate) {
+    throw new Error('Future date is required');
+  }
+
+if (options.start_date) {
+    const startMoment = moment(options.start_date);
+    if (!startMoment.isValid()) {
+      throw new Error('Invalid start date');
+    }
+  }
+
+  const now = moment(options.start_date || undefined);
+  const diff = moment(futureDate).diff(now);
+
+  if (diff < 0) {
+    throw new Error('Future date must be in the future');
+  }
+
+  const duration = moment.duration(diff);
+
+  const years = Math.floor(duration.asYears());
+  const months = Math.floor(duration.asMonths()) % 12;
+  const days = duration.days();
+  const hours = duration.hours();
+  const minutes = duration.minutes();
+  const seconds = duration.seconds();
+
+  if (years > 0) {
+    return `${years} year${years > 1 ? 's' : ''}`;
+  } else if (months > 0) {
+    return `${months} month${months > 1 ? 's' : ''}`;
+  } else if (days > 0) {
+    return `${days} day${days > 1 ? 's' : ''}`;
+  } else if (hours > 0) {
+    return `${hours} hour${hours > 1 ? 's' : ''}`;
+  } else if (minutes > 0) {
+    return `${minutes} minute${minutes > 1 ? 's' : ''}`;
+  } else {
+    return `${seconds} second${seconds > 1 ? 's' : ''}`;
+  }
+}
+
+
+
+
   module.exports = formatTime;
