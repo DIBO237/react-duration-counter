@@ -6,7 +6,7 @@ const moment = require('moment')
  * @returns {string} A human-readable string indicating how long ago the timestamp was (e.g. "a few seconds ago", "5 minutes ago", "an hour ago", "3 days ago", etc.)
  * @throws {Error} If the timestamp is invalid or missing
  */
-function formatTime(timestamp) {
+function humanTime(timestamp) {
   try {
     if (!timestamp || !moment(timestamp).isValid()) {
       throw new Error('Invalid timestamp');
@@ -68,17 +68,17 @@ function relativeDate(publishedDate) {
   } else if (diff < 7) {
     formattedDate = moment(publishedDate).format('dddd');
   } else if (diff < 365) {
-    formattedDate = moment(publishedDate).format('MMM D');
+    formattedDate = moment(publishedDate).format('MMMM D');
   } else {
     formattedDate = moment(publishedDate).format('MMM D, YYYY');
   }
   
-  return formattedDate;
+  return formattedDate.replace('in ', '');
 }
 
 
 
-function FutureCounter(futureDate, options={}) {
+function FutureDateCounter(futureDate, options={}) {
   if (!futureDate) {
     throw new Error('Future date is required');
   }
@@ -124,4 +124,4 @@ if (options.start_date) {
 
 
 
-  module.exports = formatTime;
+  module.exports = {humanTime ,relativeDate ,FutureDateCounter };
